@@ -1,0 +1,23 @@
+.imageButton {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: auto;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.imageButton:hover {
+  transform: scale(2.1);
+}
+
+.imageButtonImage {
+  padding: 10px;
+  width: 50px;
+  background: none;
+  height: auto;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

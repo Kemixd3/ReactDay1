@@ -1,6 +1,7 @@
 import { BaseProps } from "../types";
-import Profile from "../components/Profile";
 import { useState } from "react";
+import MultipleProfiles from "./MultipleProfiles";
+import { users } from "../data/data";
 
 export default function PropsDemo({ title }: BaseProps) {
   const [showHorizontal, setShowHorizontal] = useState(false);
@@ -13,13 +14,17 @@ export default function PropsDemo({ title }: BaseProps) {
         checked={showHorizontal}
         onChange={() => setShowHorizontal(!showHorizontal)}
       />
-      <Profile
-        name="Max Power"
-        email="mp@email.com"
-        isActive={true}
-        singleLine={showHorizontal}
-      />
-      {/** Add two or more Profiles, but not until you actually have implemented <Profile />   */}
+      <div>
+        <MultipleProfiles
+          profiles={users.map((user) => ({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            isActive: user.isActive,
+            singleLine: showHorizontal,
+          }))}
+        />
+      </div>
     </>
   );
 }

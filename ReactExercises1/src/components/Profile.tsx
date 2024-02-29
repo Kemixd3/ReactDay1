@@ -1,4 +1,5 @@
-type ProfileProps = {
+export type ProfileProps = {
+  id?: number;
   name: string;
   email: string;
   isActive: boolean;
@@ -6,6 +7,7 @@ type ProfileProps = {
 };
 
 export default function Profile({
+  id,
   name,
   email,
   isActive,
@@ -15,10 +17,9 @@ export default function Profile({
     return (
       <>
         <h1>
-          {name}, {email}, {isActive ? "Aktiv" : "ikke aktiv"}
+          {id}, {name}, {email}, {isActive ? "Aktiv" : "ikke aktiv"}
         </h1>
       </>
     );
   }
-  return <h1>hey</h1>;
 }
