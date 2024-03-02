@@ -79,8 +79,9 @@ export default function App() {
 type ButtonProps = {
   onSelected: (selected: string) => void;
 };
+
 const Buttons = (props: ButtonProps) => {
-  const { onSelected: handleSelected, btnStyle: btnStyle } = props;
+  const { onSelected: handleSelected } = props; // Remove btnStyle if not needed
   return (
     <>
       <button className="btn-w100" onClick={() => handleSelected("info")}>
@@ -90,7 +91,6 @@ const Buttons = (props: ButtonProps) => {
       <button className="btn-w100" onClick={() => handleSelected("props1")}>
         Props demo1
       </button>
-
       <button className="btn-w100" onClick={() => handleSelected("listDemo")}>
         Props listdemo
       </button>

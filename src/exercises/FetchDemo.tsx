@@ -12,7 +12,7 @@ function fetchUser(userId: number, options?: object): Promise<User> {
 }
 
 export default function FetchDemo1({ title }: BaseProps) {
-  const [userId, setUserId] = useState(1);
+  // const [userId, setUserId] = useState(1);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ export default function FetchDemo1({ title }: BaseProps) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetchUser(userId, { signal });
+        const response = await fetchUser(1, { signal }); // Assuming initial user id is 1
         setUser(response);
         setLoading(false);
       } catch (error) {
@@ -37,12 +37,13 @@ export default function FetchDemo1({ title }: BaseProps) {
     return () => {
       abortController.abort();
     };
-  }, [userId]);
+  }, []); // Empty dependency array to run only once on mount
 
   const fetchNextUser = async () => {
-    const nextUser = user?.id + 1 <= 15 ? user.id + 1 : 1;
+    // Check if user is not null before accessing its id property
+    const nextUserId = user ? (user.id + 1 <= 15 ? user.id + 1 : 1) : 1;
     setLoading(true);
-    const theUser = await fetchUser(nextUser);
+    const theUser = await fetchUser(nextUserId);
     setLoading(false);
     setUser(theUser);
   };
