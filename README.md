@@ -1,2 +1,3 @@
-# ReactDay1
-KEA Project
+# React + TypeScript + Vite
+
+KEA exercises 
